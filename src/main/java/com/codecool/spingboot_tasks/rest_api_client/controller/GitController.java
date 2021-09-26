@@ -4,8 +4,9 @@ import com.codecool.spingboot_tasks.rest_api_client.service.GitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class GitController {
 
     private final GitService gitService;
@@ -14,6 +15,7 @@ public class GitController {
     public GitController(GitService gitService) {
         this.gitService = gitService;
     }
+
 
     @GetMapping("/data")
     public String data() {
