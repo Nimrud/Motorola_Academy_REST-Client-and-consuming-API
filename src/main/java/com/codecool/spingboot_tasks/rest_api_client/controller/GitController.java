@@ -22,4 +22,10 @@ public class GitController {
         gitService.getUserProperties();
         return "OK";
     }
+
+    @GetMapping("/stars")
+    public String stars() {
+        gitService.getStars();
+        return "OK, spoko";
+    }
 }

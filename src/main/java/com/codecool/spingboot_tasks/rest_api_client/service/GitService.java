@@ -17,4 +17,8 @@ public class GitService {
     public void getUserProperties() {
         gitHubClient.getUserProperties();
     }
+
+    public void getStars() {
+        gitHubClient.getUserStars();
+    }
 }

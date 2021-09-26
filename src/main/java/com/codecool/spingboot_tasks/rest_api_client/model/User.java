@@ -8,7 +8,4 @@ public class User {
     private String name;
     private String location;
     private Integer publicRepos;
-
-    @JsonProperty("stargazers_count")
-    private int stars;
 }

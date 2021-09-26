@@ -6,9 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @Component
@@ -28,8 +26,15 @@ public class GitHubClient {
 
     public void getUserStars(){
         RestTemplate template = new RestTemplate();
-        ResponseEntity<User> response = template.getForEntity(url + "marwin1991/repos", );
+        ResponseEntity<UserRepos[]> response = template.getForEntity(url + "marwin1991/repos?per_page=100", UserRepos[].class);
         log.info(response.getStatusCode().toString());
         log.info(response.getBody().toString());
+
+        List<UserRepos> list = Arrays.asList(response.getBody());
+        int stars = 0;
+        for (UserRepos ur : list) {
+            stars += ur.getStars();
+        }
+        log.info(String.valueOf(stars));
     }
 }
